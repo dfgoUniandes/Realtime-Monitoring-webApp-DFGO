@@ -757,7 +757,7 @@ def get_data_state(request, **kwargs):
     measure_param = kwargs.get("measure", None)
     state_data= []
     if state_param == None or measure_param == None:
-        return JsonResponse({"error":"No se porporcionó un id de estación o medida"})
+        return JsonResponse({"error":"No se porporcionó un id de estado o medida"})
     try:
         selected_measure = Measurement.objects.filter(name=measure_param)[0]
     except IndexError:
@@ -835,7 +835,6 @@ def get_data_state(request, **kwargs):
 Filtro para formatear datos en el template de index
 """
 
-
 @register.filter
 def get_statistic(dictionary, key):
     if type(dictionary) == str:
@@ -849,7 +848,6 @@ def get_statistic(dictionary, key):
 """
 Filtro para formatear datos en los templates
 """
-
 
 @register.filter
 def add_str(str1, str2):
